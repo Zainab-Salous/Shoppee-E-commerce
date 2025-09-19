@@ -28,7 +28,6 @@ export function Navbar() {
     { path: "/products", content: "Products", protected: false },
     { path: "/category", content: "Categories", protected: false },
     { path: "/brands", content: "Brands", protected: false },
-    { path: "/allorders", content: "Orders", protected: true },
   ];
 
   const MenuAuthItems: { path: string; content: string }[] = [
@@ -84,6 +83,16 @@ export function Navbar() {
 
         {
           status == "authenticated" && <NavigationMenuItem>
+
+            
+              <NavigationMenuLink        asChild
+                  className={`${navigationMenuTriggerStyle()} position-relative `}
+                >
+                  <Link href={'/allorders'} className="relative">Orders</Link>
+                  
+                </NavigationMenuLink>
+
+           
 
               <NavigationMenuLink        asChild
                   className={`${navigationMenuTriggerStyle()} position-relative `}
