@@ -25,7 +25,7 @@ export default function ProductDetailsCard({product}: {product: productItem}) {
     <span>{price}EGP</span>
     <span><i className='fa-solid fa-star rating-color'></i>{ratingsAverage}</span>
 </div>
-<div className='flex  justify-between items-center '>
+<div className='flex  justify-between items-center  align-middle'>
   <AddCartButton id={_id} className="rounded-lg bg-main w-full mt-5">
   Add To Cart
 </AddCartButton>

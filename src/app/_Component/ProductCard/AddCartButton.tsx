@@ -53,7 +53,7 @@ export default function AddCartButton({
       ) : (
         <Button
           onClick={() => addProduct(id)}
-          className={`rounded-md bg-main w-full mt-2 cursor-pointer ${className ?? ""}`}
+          className={`rounded-md bg-main  cursor-pointer ${className ?? ""}`}
         >
           {children ?? "Add To Cart"}
         </Button>

@@ -21,7 +21,6 @@ export default function ProductCard({product}: {product: product}) {
         <CardHeader >
           <div >
             
-        <AddWishlistButton id={_id}/>
           <Image src={imageCover} alt={title} width={200} height={100} className='w-full object-cover'/>
       
           </div>
@@ -38,7 +37,10 @@ export default function ProductCard({product}: {product: product}) {
         </CardContent>
       </Link>
       <CardFooter className='flex justify-between items-center'>
-        <AddCartButton id={_id}/>
+     <div className='max-w-full flex '>
+         <AddCartButton id={_id}/>
+        <AddWishlistButton id={_id}/>
+     </div>
        
        
       </CardFooter>
