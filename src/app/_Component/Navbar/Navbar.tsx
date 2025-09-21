@@ -40,7 +40,7 @@ export function Navbar() {
   }
 
   return (
-    <NavigationMenu className="max-w-full justify-between shadow-2xl p-3">
+    <NavigationMenu className="max-w-full justify-between shadow-2xl p-3 flex flex-col md:flex-row">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
@@ -113,7 +113,7 @@ export function Navbar() {
             
       </NavigationMenuList>
 
-      <NavigationMenuList>
+      <NavigationMenuList className="flex flex-col md:flex-row">
         {status === "authenticated" ? (
           <>
             <NavigationMenuItem>
