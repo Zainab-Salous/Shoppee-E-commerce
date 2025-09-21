@@ -22,8 +22,12 @@ export default function AddCartButton({
   const CountData = useContext(CountContext)
 
   async function addProduct(id: string) {
- const token = getUserToken()
-    if (!token) {   const data = await AddProductToCart(id)
+    const token = await getUserToken()
+    if (!token) {
+      toast.error("You must be logged in to add a product to the cart", { position: "top-center" })
+      return
+    }
+    const data = await AddProductToCart(id)
     if (data.status === "success") {
       toast.success(data.message, { position: "top-center" })
       const sum = data.data.products.reduce(
@@ -33,10 +37,6 @@ export default function AddCartButton({
       CountData?.setCount(sum)
     } else {
       toast.error(data.message, { position: "top-center" })
-    }
-  } else {
-      toast.error("You must be logged in to add products to the cart", { position: "top-center" })
-      window.location.href = "/login"
     }
   }
 
