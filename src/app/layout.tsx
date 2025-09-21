@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${Encode_SansFont.className} antialiased`}
+        className={`${Encode_SansFont.className} antialiased min-height: 100dvh`}
       >
         <UserProvider>
         <CountWishlistProvider>
