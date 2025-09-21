@@ -90,7 +90,6 @@ export default function ProductsPage() {
         </select>
       </div>
 
-      {/* Products Grid */}
       <div className="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-8">
         <Suspense fallback={<HomeLoading />}>
           {loading ? (
@@ -103,7 +102,6 @@ export default function ProductsPage() {
         </Suspense>
       </div>
 
-      {/* Pagination Controls */}
       <div className="flex justify-center items-center gap-4 mt-8">
         <button
           onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
