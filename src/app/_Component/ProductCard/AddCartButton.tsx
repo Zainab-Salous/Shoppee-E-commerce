@@ -2,6 +2,7 @@
 import { AddProductToCart } from 'images/CartAction/CartAction'
 import { Button } from 'images/components/ui/button'
 import { CountContext } from 'images/CountProvider'
+import { getUserToken } from 'images/getUserToken'
 import React, { useContext } from 'react'
 import { toast } from 'sonner'
 
@@ -21,7 +22,8 @@ export default function AddCartButton({
   const CountData = useContext(CountContext)
 
   async function addProduct(id: string) {
-    const data = await AddProductToCart(id)
+ const token = getUserToken()
+    if (!token) {   const data = await AddProductToCart(id)
     if (data.status === "success") {
       toast.success(data.message, { position: "top-center" })
       const sum = data.data.products.reduce(
@@ -31,6 +33,10 @@ export default function AddCartButton({
       CountData?.setCount(sum)
     } else {
       toast.error(data.message, { position: "top-center" })
+    }
+  } else {
+      toast.error("You must be logged in to add products to the cart", { position: "top-center" })
+      window.location.href = "/login"
     }
   }
 
