@@ -16,7 +16,6 @@ export default function Category() {
     const fetchCategory = async () => {
       const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/categories`);
       const data = await res.json();
-      // API response: { results, metadata, data: Array<Category> }
       setCategories(data.data);
     };
 

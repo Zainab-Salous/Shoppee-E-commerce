@@ -10,7 +10,6 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-// ✅ تعريف الـ schema بالـ Zod
 const shippingSchema = z.object({
   details: z.string().min(5, 'Details must be at least 5 characters'),
   phone: z

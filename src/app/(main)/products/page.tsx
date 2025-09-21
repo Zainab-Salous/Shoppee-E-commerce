@@ -27,19 +27,17 @@ export default function ProductsPage() {
     fetchProducts();
   }, []);
 
-  // ✅ Handle subcategory as Brand[]
   const categories = useMemo(() => {
     const uniqueCategories = Array.from(
       new Set(
         products
-          .map((p) => p.subcategory?.[0]?.name) // safe access first subcategory
+          .map((p) => p.subcategory?.[0]?.name) 
           .filter(Boolean) as string[]
       )
     );
     return ["all", ...uniqueCategories];
   }, [products]);
 
-  // Filter and sort products
   const filteredProducts = useMemo(() => {
     let filtered =
       category === "all"
@@ -54,14 +52,12 @@ export default function ProductsPage() {
     return filtered;
   }, [products, category, sort]);
 
-  // Pagination logic
   const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE) || 1;
   const paginatedProducts = useMemo(() => {
     const start = (page - 1) * PRODUCTS_PER_PAGE;
     return filteredProducts.slice(start, start + PRODUCTS_PER_PAGE);
   }, [filteredProducts, page]);
 
-  // Reset to first page when filters change
   React.useEffect(() => {
     setPage(1);
   }, [category, sort]);
@@ -70,7 +66,6 @@ export default function ProductsPage() {
     <>
       <h1 className="text-xl font-bold mb-4">Products</h1>
 
-      {/* Filters */}
       <div className="flex gap-4 mb-6">
         <select
           value={category}

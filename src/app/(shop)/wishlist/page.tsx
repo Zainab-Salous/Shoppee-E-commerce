@@ -19,13 +19,12 @@ export default function Wishlist() {
     getAllWishlistData();
   }, []);
 
-  // ✅ جبت الداتا في try/catch عشان errors
+  
   async function getAllWishlistData() {
     try {
       setWishlistLoading(true);
       const data: WishlistData = await getWishlistData();
       setWishlist(data.data);
-      // نحسب عدد العناصر ونبعت للـ Context
       const sumWishlist = data.data.reduce((total, item) => total + (item.quantity ?? 1), 0);
       CountWishlistData?.setCountWishlist(sumWishlist);
     } catch (err) {
@@ -42,7 +41,6 @@ export default function Wishlist() {
         toast.success('Product removed', { position: 'top-center' });
         setWishlist(data.data);
 
-        // تحديث العدد بعد الحذف
         const sumWishlist = data.data.reduce((total: number, item: wishlist) => total + (item.quantity ?? 1), 0);
         CountWishlistData?.setCountWishlist(sumWishlist);
       }

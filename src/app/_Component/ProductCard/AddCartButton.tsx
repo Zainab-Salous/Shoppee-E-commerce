@@ -9,7 +9,7 @@ interface AddCartButtonProps {
   id: string
   isInWishlist?: boolean
   children?: React.ReactNode
-  className?: string   // 👈 أضف دي
+  className?: string   
 }
 
 export default function AddCartButton({

@@ -43,7 +43,7 @@ export default function Login() {
       email: values.email,
       password: values.password,
       redirect: false,
-      // callbackUrl: "/"
+      
     })
     if(data?.ok){
        toast.success("Welcome back",{position: "top-center"})

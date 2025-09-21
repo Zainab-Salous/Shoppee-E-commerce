@@ -15,7 +15,7 @@ interface ProductResponse {
 }
 
 export default function BrandProductsPage() {
-  const { slug } = useParams(); // نجيب slug من الرابط
+  const { slug } = useParams(); 
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
